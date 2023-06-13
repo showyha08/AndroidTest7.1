@@ -1,7 +1,10 @@
 package com.websarva.wings.android.intentsample
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
+import android.widget.AdapterView
 import android.widget.ListView
 import android.widget.SimpleAdapter
 
@@ -37,6 +40,25 @@ class MainActivity : AppCompatActivity() {
         )
         //アダプタの登録
         lvMenu.adapter = adapter
+        lvMenu.onItemClickListener = ListItemClickListener()
 
     }
+
+    private inner class ListItemClickListener : AdapterView.OnItemClickListener {
+        override fun onItemClick(parent: AdapterView<*>, view: View, position:Int, id:long){
+            //タップされた行のデータを取得
+            val item = parent.getItemAtPosition(position) as MutableMap<String,String>
+            //定食名と金額取得
+            val menuName = item["name"]
+            val menuPrice = item["price"]
+            //インテントオブジェクトを生成
+            val intent2MenuThanks = Intent(this@MainActivity.MenuThanksActivity::class.java)
+            //第２画面におくる
+            intent2MenuThanks.putExtra("menuName",menuName)
+            intent2MenuThanks.putExtra("menuPrice",menuPrice)
+            //第２画面の起動
+            startActivity(intent2MenuThanks)
+        }
+    }
+
 }
