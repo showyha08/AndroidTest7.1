@@ -13,8 +13,8 @@ class MenuThanksActivity : AppCompatActivity() {
         setContentView(R.layout.activity_menu_thanks)
 
         //リスト画面から渡されたデータを取得
-        val menuName =intent.getStringExtra("menuName")
-        val menuPrice =intent.getStringExtra("menuPrice")
+        val menuName = intent.getStringExtra("menuName")
+        val menuPrice = intent.getStringExtra("menuPrice")
 
         //定食名と金額を表示させるTextViewを取得
         val tvMenuName = findViewById<TextView>(R.id.tvMenuName)
@@ -26,7 +26,7 @@ class MenuThanksActivity : AppCompatActivity() {
     }
 
     // もどるボタンをタップしたときの処理
-    fun onBackButtonClick(view:View){
+    fun onBackButtonClick(view: View) {
         finish()
     }
 }

@@ -45,17 +45,17 @@ class MainActivity : AppCompatActivity() {
     }
 
     private inner class ListItemClickListener : AdapterView.OnItemClickListener {
-        override fun onItemClick(parent: AdapterView<*>, view: View, position:Int, id:long){
+        override fun onItemClick(parent: AdapterView<*>, view: View, position: Int, id: Long) {
             //タップされた行のデータを取得
-            val item = parent.getItemAtPosition(position) as MutableMap<String,String>
+            val item = parent.getItemAtPosition(position) as MutableMap<String, String>
             //定食名と金額取得
             val menuName = item["name"]
             val menuPrice = item["price"]
             //インテントオブジェクトを生成
-            val intent2MenuThanks = Intent(this@MainActivity.MenuThanksActivity::class.java)
+            val intent2MenuThanks = Intent(this@MainActivity, MenuThanksActivity::class.java)
             //第２画面におくる
-            intent2MenuThanks.putExtra("menuName",menuName)
-            intent2MenuThanks.putExtra("menuPrice",menuPrice)
+            intent2MenuThanks.putExtra("menuName", menuName)
+            intent2MenuThanks.putExtra("menuPrice", menuPrice)
             //第２画面の起動
             startActivity(intent2MenuThanks)
         }
