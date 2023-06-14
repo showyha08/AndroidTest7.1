@@ -51,11 +51,19 @@ class MainActivity : AppCompatActivity() {
             //定食名と金額取得
             val menuName = item["name"]
             val menuPrice = item["price"]
-            //インテントオブジェクトを生成
-            val intent2MenuThanks = Intent(this@MainActivity, MenuThanksActivity::class.java)
-            //第２画面におくる
-            intent2MenuThanks.putExtra("menuName", menuName)
-            intent2MenuThanks.putExtra("menuPrice", menuPrice)
+//            //インテントオブジェクトを生成
+//            val intent2MenuThanks = Intent(this@MainActivity, MenuThanksActivity::class.java)
+//            //第２画面におくる
+//            intent2MenuThanks.putExtra("menuName", menuName)
+//            intent2MenuThanks.putExtra("menuPrice", menuPrice)
+
+            //kotlinらしく書くと...
+            val intent2MenuThanks = Intent(this@MainActivity, MenuThanksActivity::class.java).apply {
+                putExtra("menuName", menuName)
+                putExtra("menuPrice", menuPrice)
+            }
+
+
             //第２画面の起動
             startActivity(intent2MenuThanks)
         }

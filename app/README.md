@@ -9,6 +9,22 @@
 - 起動先アクティ日地に渡すデータを格納
 - アクティビティを起動
 
-Intentクラス
+1.Intentクラスのインスタンスを生成
 第1引数：Context
 第2引数：cls:Class(Java化したもの)
+
+第1引数
+this@MainActivity
+
+第2引数
+Kotlinのクラス 
+クラス名::class
+
+Java化した場合
+クラス名::class.java
+
+2.起動先アクティ日地に渡すデータを格納
+
+putExtra()メソッドを利用する。
+
+
